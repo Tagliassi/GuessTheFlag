@@ -1,0 +1,146 @@
+[
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "br",
+    "answersOptions": ["Brasil", "Chile", "Peru", "Camarões"],
+    "rightAnswer": "Brasil"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "cl",
+    "answersOptions": ["China", "Coreia do Sul", "Chile", "Tailândia"],
+    "rightAnswer": "Chile"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "bz",
+    "answersOptions": ["Belize", "Bahamas", "Barbados", "Bolívia"],
+    "rightAnswer": "Belize"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "bt",
+    "answersOptions": ["Butão", "Nepal", "Sri Lanka", "Mongólia"],
+    "rightAnswer": "Butão"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "sr",
+    "answersOptions": ["Suriname", "Gana", "Guiana", "Paraguai"],
+    "rightAnswer": "Suriname"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "uz",
+    "answersOptions": ["Uzbequistão", "Cazaquistão", "Turcomenistão", "Tadjiquistão"],
+    "rightAnswer": "Uzbequistão"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "ao",
+    "answersOptions": ["Angola", "Moçambique", "Guiné-Bissau", "Cabo Verde"],
+    "rightAnswer": "Angola"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "mw",
+    "answersOptions": ["Malawi", "Zâmbia", "Quênia", "Ruanda"],
+    "rightAnswer": "Malawi"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "pg",
+    "answersOptions": ["Papua Nova Guiné", "Timor-Leste", "Indonésia", "Filipinas"],
+    "rightAnswer": "Papua Nova Guiné"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "zw",
+    "answersOptions": ["Zimbábue", "Zâmbia", "Botsuana", "Malaui"],
+    "rightAnswer": "Zimbábue"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "id",
+    "answersOptions": ["Indonésia", "Mônaco", "Polônia", "Singapura"],
+    "rightAnswer": "Indonésia"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "sm",
+    "answersOptions": ["San Marino", "Eslováquia", "Grécia", "Eslovênia"],
+    "rightAnswer": "San Marino"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "at",
+    "answersOptions": ["Áustria", "Letônia", "Dinamarca", "Alemanha"],
+    "rightAnswer": "Áustria"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "au",
+    "answersOptions": ["Austrália", "Nova Zelândia", "Reino Unido", "Fiji"],
+    "rightAnswer": "Austrália"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "gd",
+    "answersOptions": ["Granada", "Jamaica", "Barbados", "Santa Lúcia"],
+    "rightAnswer": "Granada"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "fr",
+    "answersOptions": ["França", "Espanha", "Portugal", "Itália"],
+    "rightAnswer": "França"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "de",
+    "answersOptions": ["Alemanha", "Áustria", "França", "Bélgica"],
+    "rightAnswer": "Alemanha"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "gb",
+    "answersOptions": ["Reino Unido", "Escócia", "Irlanda", "País de Gales"],
+    "rightAnswer": "Reino Unido"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "us",
+    "answersOptions": ["Estados Unidos", "Canadá", "México", "Brasil"],
+    "rightAnswer": "Estados Unidos"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "it",
+    "answersOptions": ["Itália", "França", "Grécia", "Espanha"],
+    "rightAnswer": "Itália"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "es",
+    "answersOptions": ["Espanha", "Portugal", "França", "Itália"],
+    "rightAnswer": "Espanha"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "nl",
+    "answersOptions": ["Países Baixos", "Bélgica", "França", "Luxemburgo"],
+    "rightAnswer": "Países Baixos"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "ca",
+    "answersOptions": ["Canadá", "Estados Unidos", "México", "Argentina"],
+    "rightAnswer": "Canadá"
+  },
+  {
+    "questionText": "De qual país é essa bandeira?",
+    "imageId": "jp",
+    "answersOptions": ["Japão", "China", "Coreia do Sul", "Taiwan"],
+    "rightAnswer": "Japão"
+  }
+]
