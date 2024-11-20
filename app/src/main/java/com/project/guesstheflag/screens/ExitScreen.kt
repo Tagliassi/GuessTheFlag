@@ -96,7 +96,7 @@ fun ExitScreen(navController: NavController) {
                             .height(60.dp)
                     ) {
                         Text(
-                            text = "Exit Game",
+                            text = "Exit-Game",
                             color = Color.White,
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Bold
