@@ -27,12 +27,13 @@ fun ExitScreen(navController: NavController) {
         topBar = {
             TopAppBar(
                 title = { Text("Exit Game", fontSize = 24.sp, fontWeight = FontWeight.Bold) },
-                colors = TopAppBarDefaults.smallTopAppBarColors(
+                colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color(0xFF1976D2),
                     titleContentColor = Color.White
                 )
             )
         },
+
         content = { paddingValues ->
             Box(
                 modifier = Modifier
