@@ -73,7 +73,7 @@ fun Menu(navController: NavController) {
                 Text(
                     text = "🎮 Guess The Flag 🎮",
                     style = TextStyle(
-                        fontSize = 30.sp,
+                        fontSize = 25.sp,
                         fontWeight = FontWeight.ExtraBold,
                         color = Color.White,
                         textAlign = TextAlign.Center
@@ -122,33 +122,37 @@ fun Menu(navController: NavController) {
             }
         }
 
-        // Caixa de diálogo para regras
         if (isDialogOpen) {
             AlertDialog(
                 onDismissRequest = { isDialogOpen = false },
                 title = {
                     Text(
                         text = "Game Rules",
-                        style = TextStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                        style = TextStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold),
+                        textAlign = TextAlign.Center // Centraliza o título
                     )
                 },
                 text = {
-                    Text(
-                        text = "1. Respond as quickly as possible\n" +
-                                "2. If you got it right or wrong, the game advances\n" +
-                                "3. The scoring works like this:\n" +
-                                "- Answered within 5s = 20 points\n" +
-                                "- Took more than 5s = 5 points\n" +
-                                "- More than 10s = 1 points",
-                        fontSize = 16.sp
-                    )
+                    Column(
+                        modifier = Modifier.fillMaxWidth().padding(16.dp), // Adiciona espaçamento interno
+                        verticalArrangement = Arrangement.spacedBy(8.dp) // Espaçamento entre linhas
+                    ) {
+                        Text("1. Respond as quickly as possible", fontSize = 16.sp)
+                        Text("2. If you got it right or wrong, the game advances", fontSize = 16.sp)
+                        Text("3. The scoring works like this:", fontSize = 16.sp)
+                        Text("- Answered within 5s = 20 points", fontSize = 16.sp)
+                        Text("- Took more than 5s = 5 points", fontSize = 16.sp)
+                        Text("- More than 10s = 1 point", fontSize = 16.sp)
+                    }
                 },
                 confirmButton = {
                     TextButton(onClick = { isDialogOpen = false }) {
                         Text("Close", color = Color.Red)
                     }
                 },
-                modifier = Modifier.fillMaxWidth(0.8f)
+                modifier = Modifier
+                    .fillMaxWidth(1f) // Aumenta a largura da caixa para acomodar melhor o texto
+                    .wrapContentHeight() // Deixa a altura flexível para o conteúdo
             )
         }
     }
