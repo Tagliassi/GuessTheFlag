@@ -8,7 +8,7 @@ import androidx.navigation.compose.composable
 import com.project.guesstheflag.room.DataBase
 import com.project.guesstheflag.room.LeaderBoardModel
 import com.project.guesstheflag.screens.*
-import com.project.guesstheflag.viewmodel.LeaderBoardViewModel
+import com.project.guesstheflag.screens.LeaderBoardViewModel
 import kotlinx.coroutines.launch
 import androidx.lifecycle.viewmodel.compose.viewModel
 

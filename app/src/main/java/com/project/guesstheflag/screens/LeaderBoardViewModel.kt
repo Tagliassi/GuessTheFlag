@@ -1,4 +1,4 @@
-package com.project.guesstheflag.viewmodel
+package com.project.guesstheflag.screens
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

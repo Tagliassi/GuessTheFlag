@@ -3,7 +3,7 @@ package com.project.guesstheflag.screens
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.project.guesstheflag.room.LeaderBoardDTO
-import com.project.guesstheflag.viewmodel.LeaderBoardViewModel
+import com.project.guesstheflag.screens.LeaderBoardViewModel
 
 class LeaderBoardViewModelFactory(private val dao: LeaderBoardDTO) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

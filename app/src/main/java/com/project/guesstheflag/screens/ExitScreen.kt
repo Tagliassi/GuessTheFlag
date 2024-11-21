@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.project.guesstheflag.Navigation
-import com.project.guesstheflag.viewmodel.SaveScoreViewModel
+import com.project.guesstheflag.screens.SaveScoreViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
