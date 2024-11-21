@@ -68,9 +68,14 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation("androidx.compose.ui:ui-tooling:1.x.x")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.x.x")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.x.x")
+    implementation("androidx.compose.ui:ui-tooling:1.5.1")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.5.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.4.0")
+    implementation(libs.androidx.runtime.livedata)
+
 
 
     testImplementation(libs.junit)
@@ -80,6 +85,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
 
     // Biblioteca Gson
     implementation("com.google.code.gson:gson:2.10.1")

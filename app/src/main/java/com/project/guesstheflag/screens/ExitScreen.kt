@@ -1,28 +1,30 @@
 package com.project.guesstheflag.screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.project.guesstheflag.Navigation
-import com.project.guesstheflag.R
-import androidx.compose.ui.tooling.preview.Preview
+import com.project.guesstheflag.viewmodel.SaveScoreViewModel
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ExitScreen(navController: NavController) {
+fun ExitScreen(
+    navController: NavController,
+    points: Int,
+    saveScoreViewModel: SaveScoreViewModel // Recebe o ViewModel como parâmetro
+) {
+    var playerName by remember { mutableStateOf("") }
+    val coroutineScope = rememberCoroutineScope()
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -33,7 +35,6 @@ fun ExitScreen(navController: NavController) {
                 )
             )
         },
-
         content = { paddingValues ->
             Box(
                 modifier = Modifier
@@ -47,39 +48,54 @@ fun ExitScreen(navController: NavController) {
                     verticalArrangement = Arrangement.Center,
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    // Mensagem de despedida
                     Text(
                         text = "Thanks for playing! 🎮",
-                        style = TextStyle(
-                            fontSize = 24.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color.Black,
-                            textAlign = TextAlign.Center
-                        ),
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.Black,
+                        textAlign = TextAlign.Center,
                         modifier = Modifier.padding(bottom = 16.dp)
                     )
 
-                    Image(
-                        painter = painterResource(id = R.drawable.vetor), // Imagem já usada em outras telas
-                        contentDescription = "Exit Image",
-                        modifier = Modifier
-                            .height(250.dp)
-                            .fillMaxWidth(),
-                        contentScale = ContentScale.Fit
+                    Text(
+                        text = "Your Score: $points",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.Black,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.padding(bottom = 16.dp)
                     )
 
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    // Botão para retornar ao menu principal
+                    OutlinedTextField(
+                        value = playerName,
+                        onValueChange = { playerName = it },
+                        label = { Text("Enter your name") },
+                        modifier = Modifier.fillMaxWidth(0.7f)
+                    )
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
                     Button(
-                        onClick = { navController.navigate(Navigation.menu) },
+                        onClick = {
+                            if (playerName.isNotEmpty()) {
+                                coroutineScope.launch {
+                                    // Usando a corrotina para salvar o score no viewModel
+                                    saveScoreViewModel.saveScore(playerName, points)
+                                    navController.navigate(Navigation.menu)
+                                }
+                            } else {
+                                // Mostrar mensagem de erro ou feedback
+                            }
+                        },
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF00796B)),
                         modifier = Modifier
                             .fillMaxWidth(0.7f)
                             .height(60.dp)
                     ) {
                         Text(
-                            text = "Back to Menu",
+                            text = "Save and Return",
                             color = Color.White,
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Bold
@@ -88,16 +104,15 @@ fun ExitScreen(navController: NavController) {
 
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    // Botão para fechar o app
                     Button(
-                        onClick = { /* Fechar o aplicativo */ },
+                        onClick = { navController.navigate(Navigation.menu) },
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFF5722)),
                         modifier = Modifier
                             .fillMaxWidth(0.7f)
                             .height(60.dp)
                     ) {
                         Text(
-                            text = "Exit-Game",
+                            text = "Exit Without Saving",
                             color = Color.White,
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Bold
@@ -107,9 +122,4 @@ fun ExitScreen(navController: NavController) {
             }
         }
     )
-}
-@Preview(showBackground = true)
-@Composable
-fun PreviewExitScreen() {
-    ExitScreen(navController = rememberNavController())
 }

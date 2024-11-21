@@ -5,6 +5,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -13,19 +14,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.project.guesstheflag.room.LeaderBoardDTO
 import com.project.guesstheflag.room.LeaderBoardModel
 import com.project.guesstheflag.viewmodel.LeaderBoardViewModel
-import kotlinx.coroutines.flow.StateFlow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LeaderBoardScreen(navController: NavController, leaderBoardViewModel: LeaderBoardViewModel = viewModel()) {
-    val leaderboard by leaderBoardViewModel.leaderboard.collectAsState(initial = emptyList())
+fun LeaderBoardScreen(navController: NavController, leaderBoardViewModel: LeaderBoardViewModel) {
+    val leaderboard by leaderBoardViewModel.leaderboard.observeAsState(emptyList())
 
     Scaffold(
         topBar = {
@@ -70,35 +71,6 @@ fun LeaderBoardScreen(navController: NavController, leaderBoardViewModel: Leader
         }
     )
 }
-@Preview(showBackground = true)
-@Composable
-fun PreviewLeaderBoardScreen()  {
-    val mockLeaderboard = listOf(
-        LeaderBoardModel(name = "Alice", points = 120),
-        LeaderBoardModel(name = "Bob", points = 110),
-        LeaderBoardModel(name = "Charlie", points = 100)
-    )
-
-    LeaderBoardScreen(
-        navController = rememberNavController(),
-        leaderBoardViewModel = object : LeaderBoardViewModel(MockDao(mockLeaderboard)) {
-            override val leaderboard = kotlinx.coroutines.flow.MutableStateFlow(mockLeaderboard)
-        }
-    )
-}
-
-class MockDao(private val mockData: List<LeaderBoardModel>) : LeaderBoardDTO {
-    override suspend fun insert(leaderboard: LeaderBoardModel) {
-        // No-op for preview
-    }
-
-    override suspend fun getScores(): List<LeaderBoardModel> = mockData
-}
-
-
-
-
-annotation class Preview(val showBackground: Boolean)
 
 @Composable
 fun LeaderBoardItem(player: LeaderBoardModel) {
@@ -110,8 +82,7 @@ fun LeaderBoardItem(player: LeaderBoardModel) {
             containerColor = Color(0xFF1976D2)
         )
     ) {
-
-    Row(
+        Row(
             modifier = Modifier
                 .padding(16.dp)
                 .fillMaxWidth(),
@@ -129,5 +100,27 @@ fun LeaderBoardItem(player: LeaderBoardModel) {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun PreviewLeaderBoardScreen() {
+    val mockLeaderboard = listOf(
+        LeaderBoardModel(name = "Alice", points = 120),
+        LeaderBoardModel(name = "Bob", points = 110),
+        LeaderBoardModel(name = "Charlie", points = 100)
+    )
 
+    LeaderBoardScreen(
+        navController = rememberNavController(),
+        leaderBoardViewModel = object : LeaderBoardViewModel(MockDao(mockLeaderboard)) {
+            override val leaderboard = MutableLiveData(mockLeaderboard)
+        }
+    )
+}
 
+class MockDao(private val mockData: List<LeaderBoardModel>) : LeaderBoardDTO {
+    override fun insert(leaderboard: LeaderBoardModel) {
+        // No-op for preview
+    }
+
+    override fun getScores(): LiveData<List<LeaderBoardModel>> = MutableLiveData(mockData)
+}
