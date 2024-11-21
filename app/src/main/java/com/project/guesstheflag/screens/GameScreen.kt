@@ -104,8 +104,10 @@ fun GameScreen(navController: NavController, viewModel: GameViewModel = viewMode
                 if (viewModel.actualQuestion.value < shuffledQuestions.size - 1) {
                     viewModel.nextQuestion()
                 } else {
-                    navController.navigate("exit/$scoring")
+
+                    navController.navigate("exit/${scoring}")
                 }
+
             }
         )
 
